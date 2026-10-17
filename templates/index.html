@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Top Categories -->
+    <div class="top-chips">
+        <button class="chip-tab active" data-chip="foryou">🔥 <span data-i18n="foryou">For You</span></button>
+        <button class="chip-tab" data-chip="following">👥 <span data-i18n="following">Following</span></button>
+        <button class="chip-tab" data-chip="python">🐍 Python</button>
+        <button class="chip-tab" data-chip="javascript">⚡ JavaScript</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+        <input type="text" id="searchInput" data-i18n-ph="search" placeholder="Search global GitHub repositories & tools...">
+    </div>
+
+    <div id="feed-container">
+        <!-- JavaScript দিয়ে GitHub ডেটা এখানে লোড হবে -->
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitFeed-AI</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div>
+            <h2>GitFeed-AI</h2>
+            <p data-i18n="welcome">Welcome, Developer!</p>
+        </div>
+        <a href="/settings" class="icon-btn" aria-label="Settings" style="text-decoration:none;">⚙️</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="/" class="nav-item {% if request.path == '/' %}active{% endif %}">🏠</a>
+        <a href="/trending" class="nav-item {% if request.path == '/trending' %}active{% endif %}">🔥</a>
+        <a href="/starred" class="nav-item {% if request.path == '/starred' %}active{% endif %}">⭐</a>
+        <a href="/profile" class="nav-item {% if request.path == '/profile' %}active{% endif %}">👤</a>
+    </nav>
+
+    <script src="{{ url_for('static', filename='i18n.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

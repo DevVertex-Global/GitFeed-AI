@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="glass-modal" style="margin: 20px auto; max-width: 500px;">
+        <h3>⚙️ <span data-i18n="settings">Settings</span></h3>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;"><span data-i18n="settingsSub">Manage app preferences and secure credentials.</span></p>
+        
+        <!-- Privacy & Security Link -->
+        <div class="input-group" style="margin-bottom: 20px;">
+            <a href="/privacy" class="btn-secondary" style="display: block; text-align: center; text-decoration: none; padding: 12px; background: rgba(79, 70, 229, 0.2); border: 1px solid var(--accent-color);">
+                🔒 <span data-i18n="privacyLink">Privacy & Security (API Keys & Tokens)</span>
+            </a>
+        </div>
+
+        <div class="input-group row-group">
+            <label><span data-i18n="light">Light Theme Mode</span>:</label>
+            <input type="checkbox" id="themeToggle">
+        </div>
+
+        <div class="input-group">
+            <label><span data-i18n="language">Language</span>:</label>
+            <select id="langSelect">
+                <option value="en">English (US)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="es">Español (Spanish)</option>
+                <option value="fr">Français (French)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="zh">中文 (Chinese)</option>
+                <option value="ja">日本語 (Japanese)</option>
+                <option value="ru">Русский (Russian)</option>
+                <option value="ar">العربية (Arabic)</option>
+                <option value="hi">हिन्दी (Hindi)</option>
+                <option value="pt">Português (Portuguese)</option>
+                <option value="ko">한국어 (Korean)</option>
+            </select>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 20px;">
+            <a href="/" class="btn-primary" style="text-align:center; text-decoration:none; display:block; line-height:38px;" data-i18n="home">Back to Home</a>
+        </div>
+    </div>
+{% endblock %}

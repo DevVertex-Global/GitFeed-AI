@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="glass-modal" style="margin: 20px auto; max-width: 500px;">
+        <h3>🔒 <span data-i18n="privacyT">Privacy & Security</span></h3>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 20px;"><span data-i18n="privacySub">Your credentials are saved only in your browser and are never stored on any server.</span></p>
+
+        <!-- GitHub token: its own form so a password manager can save it as its own entry -->
+        <form class="cred-form" onsubmit="return false;" id="ghForm" action="/privacy" method="post" data-store="gh_token" data-input="ghToken" data-redirect="/settings">
+            <input type="text" class="offscreen-field" name="username" value="GitFeed-AI GitHub Token" autocomplete="username" tabindex="-1" aria-hidden="true">
+            <div class="input-group">
+                <label for="ghToken"><span data-i18n="ghLabel">GitHub Access Token</span>:</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="password" id="ghToken" name="password" autocomplete="current-password" placeholder="ghp_xxxxxxxxxxxx" style="flex: 1;">
+                    <button type="button" id="toggleGhToken" class="action-btn" style="padding: 0 12px;" aria-label="Show / hide">👁️</button>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 10px;" data-i18n="save">Save Securely</button>
+            <p class="save-status" aria-live="polite"></p>
+        </form>
+
+        <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 20px 0;">
+
+        <!-- Gemini key: separate form and separate username -->
+        <form class="cred-form" onsubmit="return false;" id="geminiForm" action="/privacy" method="post" data-store="gemini_key" data-input="geminiKey" data-redirect="/settings">
+            <input type="text" class="offscreen-field" name="username" value="GitFeed-AI Gemini Key" autocomplete="username" tabindex="-1" aria-hidden="true">
+            <div class="input-group">
+                <label for="geminiKey"><span data-i18n="gemLabel">Google Gemini API Key</span>:</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="password" id="geminiKey" name="password" autocomplete="current-password" placeholder="AIzaSyXXXXXXXXX" style="flex: 1;">
+                    <button type="button" id="toggleGeminiKey" class="action-btn" style="padding: 0 12px;" aria-label="Show / hide">👁️</button>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 10px;" data-i18n="save">Save Securely</button>
+            <p class="save-status" aria-live="polite"></p>
+        </form>
+
+        <div class="modal-actions" style="margin-top: 20px;">
+            <a href="/settings" class="btn-secondary" style="text-align:center; text-decoration:none; display:block; line-height:38px;" data-i18n="back">Back to Settings</a>
+        </div>
+    </div>
+{% endblock %}
